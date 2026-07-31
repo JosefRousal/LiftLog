@@ -11,8 +11,8 @@ import {
 } from '@/components/presentation/workout-editor/progressive-overload';
 import { SharedFieldsEditor } from '@/components/presentation/workout-editor/shared-fields-editor';
 import { spacing, useAppTheme } from '@/hooks/useAppTheme';
+import { useRestTimersEnabled } from '@/hooks/useRestTimersEnabled';
 import { ExerciseBlueprint, RepsConfig, RepsType, WeightedExerciseBlueprint } from '@/models/blueprint-models';
-import { useAppSelector } from '@/store';
 import { ExtractType } from '@/utils/extract-type';
 import { useTranslate } from '@tolgee/react';
 import { useState } from 'react';
@@ -27,7 +27,7 @@ export function WeightedExerciseEditor({
 }) {
   const { t } = useTranslate();
   const { colors } = useAppTheme();
-  const restTimersEnabled = useAppSelector((x) => x.settings.restTimersEnabled);
+  const restTimersEnabled = useRestTimersEnabled();
   const [restDialogOpen, setRestDialogOpen] = useState(false);
 
   const mode = exercise.repsConfig.type;

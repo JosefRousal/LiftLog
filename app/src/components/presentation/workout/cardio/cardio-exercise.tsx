@@ -12,7 +12,6 @@ import { rounding, spacing, useAppTheme } from '@/hooks/useAppTheme';
 import { Text } from 'react-native-paper';
 import Menu from '@/components/presentation/foundation/menu';
 import BigNumber from 'bignumber.js';
-import { useAppSelector } from '@/store';
 import { formatDuration } from '@/utils/format-duration';
 import { getShortUnit } from '@/utils/unit';
 import { DecimalEditor } from '@/components/presentation/foundation/editors/decimal-editor';
@@ -97,8 +96,8 @@ function useLiveDuration(set: RecordedCardioExerciseSet): Duration | undefined {
 function CardioExerciseSet(props: CardioExerciseSetProps) {
   const { set, updateSet, isReadonly } = props;
   const { t } = useTranslate();
-  const imperialByDefault = useAppSelector((x) => x.settings.useImperialUnits);
   const preferredWeightUnit = usePreferredWeightUnit();
+  const imperialByDefault = preferredWeightUnit === 'pounds';
   const liveDuration = useLiveDuration(set);
   const { blueprint } = set;
 

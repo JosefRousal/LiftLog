@@ -23,7 +23,7 @@ import { useScroll } from '@/hooks/useScrollListener';
 import { useMountEffect } from '@/hooks/useMountEffect';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChatBubble } from '@/components/presentation/ai-planner/chat-bubble';
-import { ShareProgramButton } from '@/components/presentation/ai-planner/share-program-button';
+import { ShareProgramButton } from '@/components/smart/share-program-button';
 
 const COMPOSER_GAP = spacing[2];
 

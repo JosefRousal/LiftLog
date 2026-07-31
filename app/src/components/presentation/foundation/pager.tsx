@@ -48,6 +48,8 @@ export function Pager({
     }
   }, [page, pageWidth]);
 
+  // Animated.divide builds a native-driver node, not a plain value the compiler can re-derive per render;
+  // it must stay referentially stable so PageIndicator doesn't resubscribe on every render.
   const progress = useMemo(() => Animated.divide(scrollX, pageWidth || 1), [scrollX, pageWidth]);
 
   const onLayout = (e: LayoutChangeEvent) => setPageWidth(e.nativeEvent.layout.width);

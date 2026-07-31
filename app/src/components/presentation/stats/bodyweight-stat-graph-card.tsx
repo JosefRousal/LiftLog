@@ -6,13 +6,15 @@ import { spacing, useAppTheme } from '@/hooks/useAppTheme';
 import { useState } from 'react';
 import { SurfaceText } from '@/components/presentation/foundation/surface-text';
 import { useTranslate } from '@tolgee/react';
-import { useAppSelector } from '@/store';
 import { lineGraphProps } from '@/components/presentation/stats/line-graph-props';
 
-export default function BodyweightStatGraphCard(props: { bodyweightStats: WeightedStatisticOverTime }) {
+export default function BodyweightStatGraphCard(props: {
+  bodyweightStats: WeightedStatisticOverTime;
+  showBodyweight: boolean;
+}) {
   const weightUnit = usePreferredWeightUnit();
   const { t } = useTranslate();
-  const showBodyweight = useAppSelector((x) => x.settings.showBodyweight);
+  const { showBodyweight } = props;
   const { colors } = useAppTheme();
   const points: lineDataItem[] = props.bodyweightStats.statistics.map(
     (stat): lineDataItem => ({

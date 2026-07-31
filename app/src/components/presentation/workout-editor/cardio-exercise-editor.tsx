@@ -12,6 +12,8 @@ import { SharedFieldsEditor } from '@/components/presentation/workout-editor/sha
 import StraightenIcon from '@expo/material-symbols/straighten.xml';
 import TimerIcon from '@expo/material-symbols/timer.xml';
 import { useAppTheme } from '@/hooks/useAppTheme';
+import { useRestTimersEnabled } from '@/hooks/useRestTimersEnabled';
+import { usePreferredWeightUnit } from '@/hooks/usePreferredWeightUnit';
 import {
   CardioExerciseBlueprint,
   CardioExerciseSetBlueprint,
@@ -23,7 +25,6 @@ import {
   TimeCardioTarget,
   WeightedExerciseBlueprint,
 } from '@/models/blueprint-models';
-import { useAppSelector } from '@/store';
 import { assertUnreachable } from '@/utils/assert-unreachable';
 import { KeysOfType } from '@/utils/types';
 import { Duration } from '@js-joda/core';
@@ -97,7 +98,7 @@ function CardioSetEditor(props: {
 }) {
   const { t } = useTranslate();
   const { colors } = useAppTheme();
-  const restTimersEnabled = useAppSelector((x) => x.settings.restTimersEnabled);
+  const restTimersEnabled = useRestTimersEnabled();
   const [restDialogOpen, setRestDialogOpen] = useState(false);
   const { set, updateSet } = props;
   const rest = set.restBetweenSets;
@@ -203,7 +204,7 @@ function CardioSetEditor(props: {
 }
 
 function CardioTargetEditor(props: { target: CardioTarget; onValueChange: (t: CardioTarget) => void }) {
-  const useImperialUnits = useAppSelector((x) => x.settings.useImperialUnits);
+  const useImperialUnits = usePreferredWeightUnit() === 'pounds';
   const { target, onValueChange } = props;
   const { t } = useTranslate();
   const handleTypeChange = (type: CardioTarget['type']) => {
