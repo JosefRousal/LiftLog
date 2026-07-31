@@ -43,17 +43,23 @@ When you add, remove, rename, or repurpose a doc, **update `docs/index.md` in th
 index stays trustworthy.
 
 `docs/schemas/` holds **generated** JSON schemas (ai-plan, program-blueprint, workout-worker).
-Regenerate with `npm run json-schema`; don't hand-edit.
+Regenerate with `pnpm run json-schema`; don't hand-edit.
+
+## Workspace
+
+The repo is a **pnpm workspace** (`app`, `scripts`; `backend/` is a separate .NET project, not part
+of it). Install dependencies once from the repo root with `pnpm install` — don't run `npm`/`yarn`/`bun`
+install commands, and don't install inside `app/` or `scripts/` directly.
 
 ## Commands (run from `app/`)
 
-- **Test:** `npm test` (Vitest watch) / `npm run test:coverage`. Runner is **Vitest**, not Jest — with
+- **Test:** `pnpm test` (Vitest watch) / `pnpm run test:coverage`. Runner is **Vitest**, not Jest — with
   jsdom, `@testing-library/react`, and fast-check for property tests.
-- **Typecheck:** `npm run typecheck` (`tsgo --noEmit`, the native-preview compiler — not plain `tsc`).
-- **Lint:** `npm run lint` (`oxlint && eslint .`). The oxc toolchain (oxlint/oxfmt) is primary; ESLint
+- **Typecheck:** `pnpm run typecheck` (`tsgo --noEmit`, the native-preview compiler — not plain `tsc`).
+- **Lint:** `pnpm run lint` (`oxlint && eslint .`). The oxc toolchain (oxlint/oxfmt) is primary; ESLint
   runs only the react-compiler rule.
-- **Format:** `npm run format` (`oxfmt --write .`) / `npm run format:check`.
-- **E2E:** `npm run e2e` (Maestro; flows live in `app/.maestro/`).
+- **Format:** `pnpm run format` (`oxfmt --write .`) / `pnpm run format:check`.
+- **E2E:** `pnpm run e2e` (Maestro; flows live in `app/.maestro/`).
 
 Run typecheck and lint before considering a change done.
 

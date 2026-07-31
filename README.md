@@ -53,11 +53,13 @@ Want to help translate? [Create an account on Weblate!](https://translate.liftlo
 
 ### Run the App
 
+The repo is a pnpm workspace, so dependencies install once from the repo root:
+
 ```bash
+pnpm install
 cd app
-npm install
-npm run android   # For Android
-npm run ios       # For iOS (macOS only)
+pnpm run android   # For Android
+pnpm run ios       # For iOS (macOS only)
 ```
 
 ### Run the Backend API

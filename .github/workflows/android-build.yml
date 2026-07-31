@@ -12,12 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: "24"
-          cache: npm
-          cache-dependency-path: ./app/package-lock.json
+          cache: pnpm
+          cache-dependency-path: ./pnpm-lock.yaml
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -32,10 +35,9 @@ jobs:
         uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3.2.2
 
       - name: Install
-        run: npm ci
-        working-directory: ./app
+        run: pnpm install --frozen-lockfile
       - name: Prebuild
-        run: npm run prebuild
+        run: pnpm run prebuild
         working-directory: ./app
 
       - name: Build Android

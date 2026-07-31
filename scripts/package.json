@@ -1,6 +1,5 @@
 {
   "name": "scripts",
-  "module": "index.ts",
   "type": "module",
   "scripts": {
     "create-release": "./create-release.ts patch",

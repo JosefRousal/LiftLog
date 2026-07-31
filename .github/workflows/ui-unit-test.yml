@@ -18,24 +18,25 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: "24"
-          cache: npm
-          cache-dependency-path: ./app/package-lock.json
+          cache: pnpm
+          cache-dependency-path: ./pnpm-lock.yaml
       - name: Install
-        run: npm ci
-        working-directory: ./app
+        run: pnpm install --frozen-lockfile
       - name: Generate Expo types
-        run: npx expo customize tsconfig.json
+        run: pnpm exec expo customize tsconfig.json
         working-directory: ./app
       - name: Typecheck
-        run: npm run typecheck
+        run: pnpm run typecheck
         working-directory: ./app
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
         working-directory: ./app
       - name: Test
-        run: npm test
+        run: pnpm test
         working-directory: ./app

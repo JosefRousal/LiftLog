@@ -1,9 +1,9 @@
 # scripts
 
-To install dependencies:
+To install dependencies, from the repo root:
 
 ```bash
-bun install
+pnpm install
 ```
 
 This directory contains general scripts which LiftLog uses.
@@ -15,5 +15,5 @@ The collect screenshots script will start android and ios simulators and collect
 Run:
 
 ```bash
-bun run collect-screenshots.ts
+pnpm --filter scripts collect-screenshots
 ```
