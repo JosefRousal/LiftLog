@@ -19,29 +19,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: "24"
-          cache: npm
-          cache-dependency-path: ./app/package-lock.json
+          cache: pnpm
+          cache-dependency-path: ./pnpm-lock.yaml
       - name: Install
-        run: npm ci
-        working-directory: ./app
+        run: pnpm install --frozen-lockfile
 
       # The schema is copied to three places and the validator is compiled from
       # it, all as committed build artifacts. Regenerating them here proves the
       # committed copies still match the models they came from.
       - name: Regenerate schemas and validator
-        run: npm run json-schema
+        run: pnpm run json-schema
         working-directory: ./app
       - name: Format the generated app schema
-        run: npx oxfmt --write src/models/generated
+        run: pnpm exec oxfmt --write src/models/generated
         working-directory: ./app
       - name: Check the committed artifacts are up to date
         run: |
           if ! git diff --exit-code -- docs/schemas app/src/models/generated plugins/liftlog-plan-builder; then
-            echo "::error::Generated schema or validator is out of date. Run 'cd app && npm run json-schema && npm run format' and commit the result."
+            echo "::error::Generated schema or validator is out of date. Run 'cd app && pnpm run json-schema && pnpm run format' and commit the result."
             exit 1
           fi
 

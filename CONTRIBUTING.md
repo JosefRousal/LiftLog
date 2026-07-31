@@ -20,7 +20,7 @@ Thank you for your interest in contributing to LiftLog! We welcome all contribut
 3. **Run tests**:
    - Frontend:
      ```sh
-     npm test
+     pnpm test
      ```
    - Backend:
      ```sh

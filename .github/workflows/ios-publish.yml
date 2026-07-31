@@ -50,33 +50,35 @@ jobs:
           base: 100
           run-id: ${{ github.run_number }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 24.x
 
       - name: Install JS dependencies
-        working-directory: ./app
-        run: npm ci
+        run: pnpm install --frozen-lockfile
       - name: Generate Expo types
-        run: npx expo customize tsconfig.json
+        run: pnpm exec expo customize tsconfig.json
         working-directory: ./app
       - name: Typecheck
-        run: npm run typecheck
+        run: pnpm run typecheck
         working-directory: ./app
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
         working-directory: ./app
       - name: Test
-        run: npm test
+        run: pnpm test
         working-directory: ./app
       - name: Prebuild
-        run: npm run prebuild
+        run: pnpm run prebuild
         working-directory: ./app
 
       - name: Build JS bundle (optional)
         working-directory: ./app
-        run: npx expo export --platform ios || echo "Skipped"
+        run: pnpm exec expo export --platform ios || echo "Skipped"
 
       - name: Install CocoaPods
         working-directory: ./app
