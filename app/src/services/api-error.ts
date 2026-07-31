@@ -1,5 +1,3 @@
-import type { FetchResponse } from 'expo/build/winter/fetch/FetchResponse';
-
 export enum ApiErrorType {
   Unknown = 0,
   NotFound = 1,
@@ -14,8 +12,11 @@ export interface ApiError {
   exception: unknown;
 }
 
+// `Response` (not Expo's `FetchResponse`) since this is also constructed from Hono RPC client
+// responses (hono/client's `ClientResponse` extends the standard `Response` interface, not Expo's
+// Response subtype) — this only ever reads `.status`/`.statusText`/`.text()`, which both have.
 export class ResponseError extends Error {
-  constructor(public readonly response: FetchResponse) {
+  constructor(public readonly response: Response) {
     super('Error during api call');
   }
 }

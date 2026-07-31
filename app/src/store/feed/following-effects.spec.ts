@@ -36,9 +36,8 @@ import {
   RejectedFollowResponse,
 } from '@/models/feed-models';
 import { RemoteData } from '@/models/remote';
-import { AesKey, RsaPublicKey } from '@/models/encryption-models';
+import { AesKey, RsaPublicKey, GetUserResponse } from '@liftlog/shared';
 import { ApiResult, ApiError, ApiErrorType } from '@/services/api-error';
-import { GetUserResponse } from '@/models/feed-api-models';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 

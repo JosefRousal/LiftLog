@@ -14,7 +14,7 @@ import {
   ReceivedReaction,
 } from '@/models/feed-models';
 import { RemoteData } from '@/models/remote';
-import { RsaPublicKey } from '@/models/encryption-models';
+import { RsaPublicKey } from '@liftlog/shared';
 import { ApiResult } from '@/services/api-error';
 import { Session } from '@/models/session-models';
 import { SessionBlueprint } from '@/models/blueprint-models';

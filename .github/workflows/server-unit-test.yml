@@ -1,0 +1,61 @@
+name: Server Unit Tests
+
+on:
+  push:
+    paths:
+      - shared/**
+      - server/**
+      - .github/**
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: liftlog
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5401:5432
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: pnpm
+          cache-dependency-path: ./pnpm-lock.yaml
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck shared
+        run: pnpm run typecheck
+        working-directory: ./shared
+      - name: Lint shared
+        run: pnpm run lint
+        working-directory: ./shared
+      - name: Test shared
+        run: pnpm test
+        working-directory: ./shared
+      - name: Typecheck server
+        run: pnpm run typecheck
+        working-directory: ./server
+      - name: Lint server
+        run: pnpm run lint
+        working-directory: ./server
+      - name: Test server
+        run: pnpm test
+        working-directory: ./server
+        env:
+          DATABASE_URL: postgres://postgres:password@localhost:5401/liftlog

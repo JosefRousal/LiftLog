@@ -9,7 +9,7 @@ import { FeedIdentity, FEED_EVENT_RETENTION_SECONDS, FollowedFeedUser, SessionUs
 import { Session } from '@/models/session-models';
 import { SessionBlueprint } from '@/models/blueprint-models';
 import { Weight } from '@/models/weight';
-import { AesKey, RsaKeyPair, RsaPublicKey } from '@/models/encryption-models';
+import { AesKey, RsaKeyPair, RsaPublicKey } from '@liftlog/shared';
 import { ApiResult } from '@/services/api-error';
 import { toJsonBytes } from '@/services/encryption-service';
 import { SessionJSON } from '@/models/storage/versions/latest';

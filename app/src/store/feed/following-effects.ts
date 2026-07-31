@@ -23,7 +23,7 @@ import {
 } from '@/store/feed';
 import { AcceptedFollowResponse, FollowedFeedUser, FollowerFeedUser, PendingFeedUser } from '@/models/feed-models';
 import { RemoteData } from '@/models/remote';
-import { RsaPublicKey } from '@/models/encryption-models';
+import { RsaPublicKey } from '@liftlog/shared';
 import { ApiErrorType } from '@/services/api-error';
 
 export function addFollowingEffects(addEffect: AddEffectFn) {

@@ -6,7 +6,7 @@ import { addReactionEffects } from '@/store/feed/reaction-effects';
 import feedReducer, { cheerFeedItem } from '@/store/feed';
 import { FeedIdentity, FollowedFeedUser, Reaction, SessionUserEvent } from '@/models/feed-models';
 import { RemoteData } from '@/models/remote';
-import { AesKey, RsaPublicKey } from '@/models/encryption-models';
+import { AesKey, RsaPublicKey } from '@liftlog/shared';
 import { ApiErrorType, ApiResult } from '@/services/api-error';
 import { Session } from '@/models/session-models';
 import { SessionBlueprint } from '@/models/blueprint-models';

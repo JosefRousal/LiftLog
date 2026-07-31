@@ -8,7 +8,7 @@ import {
   PendingFeedUser,
   Reaction,
 } from '@/models/feed-models';
-import { RsaPublicKey } from '@/models/encryption-models';
+import { RsaPublicKey } from '@liftlog/shared';
 import { FeedInboxDecryptionService } from './feed-inbox-decryption-service';
 import { uuid } from '@/utils/uuid';
 import { ApiErrorType, ApiResult } from '@/services/api-error';

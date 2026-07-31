@@ -1,3 +1,5 @@
 packages:
   - app
   - scripts
+  - shared
+  - server

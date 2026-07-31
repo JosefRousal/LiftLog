@@ -1,4 +1,4 @@
-import { AesKey } from '@/models/encryption-models';
+import { AesKey } from '@liftlog/shared';
 import { fromSharedItemJSON } from '@/models/feed-models';
 import { RemoteData } from '@/models/remote';
 import { AnyVersionSharedItemJSON } from '@/models/storage/versions/any';

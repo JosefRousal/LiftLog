@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { EncryptionService, fromJsonBytes, toJsonBytes } from './encryption-service';
-import type { AesKey, RsaKeyPair } from '@/models/encryption-models';
+import type { AesKey, RsaKeyPair } from '@liftlog/shared';
 
 describe('EncryptionService', () => {
   let svc: EncryptionService;
