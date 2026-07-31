@@ -17,7 +17,7 @@ interface ColorPickerDialogProps {
   onConfirm: (seed: HexColor) => void;
 }
 
-export default function ColorPickerDialog(props: ColorPickerDialogProps) {
+export function ColorPickerDialog(props: ColorPickerDialogProps) {
   const { colors } = useAppTheme();
   const fallback = colors.primary as HexColor;
   const [draft, setDraft] = useState<HexColor>(props.initialSeed === 'default' ? fallback : props.initialSeed);

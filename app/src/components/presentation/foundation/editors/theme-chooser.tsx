@@ -13,7 +13,7 @@ import Svg, { Path } from 'react-native-svg';
 import { List } from 'react-native-paper';
 import Button from '@/components/presentation/foundation/button';
 import ListSwitch from '@/components/presentation/foundation/list-switch';
-import ColorPickerDialog from '@/components/presentation/foundation/editors/color-picker-dialog';
+import { ColorPickerDialog } from '@/components/presentation/foundation/editors/color-picker-dialog';
 
 interface ThemeChooserProps {
   seed: ColorSchemeSeed;

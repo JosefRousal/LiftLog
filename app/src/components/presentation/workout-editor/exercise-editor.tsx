@@ -2,7 +2,7 @@ import { FormRow } from '@/components/presentation/foundation/form-row';
 import Form from '@/components/presentation/foundation/form';
 import SegmentedPicker from '@/components/presentation/foundation/segmented-picker';
 import { CardioExerciseEditor } from '@/components/presentation/workout-editor/cardio-exercise-editor';
-import { ExerciseSearcher } from '@/components/presentation/workout-editor/exercise-searcher';
+import { ExerciseSearcher } from '@/components/smart/exercise-searcher';
 import { WeightedExerciseEditor } from '@/components/presentation/workout-editor/weighted-exercise-editor';
 import DirectionsRunIcon from '@expo/material-symbols/directions_run.xml';
 import FitnessCenterIcon from '@expo/material-symbols/fitness_center.xml';

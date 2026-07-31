@@ -5,6 +5,10 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 // oxlint-disable-next-line no-restricted-imports
 import { Button as NativeButton, ButtonProps as PaperButtonProps } from 'react-native-paper';
 
+// This is the paper-based primitive being migrated away from — new call sites should reach for
+// `foundation/native-button` (expo-ui) instead; this stays until that migration covers the rest
+// of the app's 30+ remaining usages.
+
 export type ButtonProps = {
   icon?: AppIconSource;
 } & Omit<PaperButtonProps, 'icon'>;

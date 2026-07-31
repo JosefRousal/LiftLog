@@ -4,9 +4,9 @@ import { ChatMessage } from '@/store/ai-planner';
 import { match } from 'ts-pattern';
 import { Loader } from '@/components/presentation/foundation/loader';
 import { GeneralMessage } from '@/components/presentation/ai-planner/general-message';
-import { PlanMessage } from '@/components/presentation/ai-planner/plan-message';
+import { PlanMessage } from '@/components/smart/plan-message';
 import { SharedProgramMessage } from '@/components/presentation/ai-planner/shared-program-message';
-import { ProPrompt } from '@/components/presentation/ai-planner/pro-prompt';
+import { ProPrompt } from '@/components/smart/pro-prompt';
 import { UpdatePrompt } from '@/components/presentation/ai-planner/update-prompt';
 
 export function ChatBubble(props: {

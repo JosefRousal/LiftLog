@@ -1,7 +1,7 @@
 import { AccordionItem } from '@/components/presentation/foundation/accordion-item';
 import { spacing } from '@/hooks/useAppTheme';
+import { useNotesExpandedByDefault } from '@/hooks/useNotesExpandedByDefault';
 import { RecordedExercise } from '@/models/session-models';
-import { useAppSelector } from '@/store';
 import { useCallback, useState } from 'react';
 import { View } from 'react-native';
 import { Card, Divider, Text } from 'react-native-paper';
@@ -12,7 +12,7 @@ interface ExerciseNotesDisplayProps {
   previousExercise: RecordedExercise | undefined;
 }
 export default function ExerciseNotesDisplay(props: ExerciseNotesDisplayProps) {
-  const expandByDefault = useAppSelector((x) => x.settings.notesExpandedByDefault);
+  const expandByDefault = useNotesExpandedByDefault();
   const notes = props.exercise.notes ?? '';
   const blueprintNotes = props.exercise.blueprint.notes ?? '';
   const previousNotes = props.previousExercise?.notes ? 'Last time: ' + props.previousExercise.notes : '';

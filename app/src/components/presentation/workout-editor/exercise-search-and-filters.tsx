@@ -1,5 +1,5 @@
 import { AccordionItem } from '@/components/presentation/foundation/accordion-item';
-import ExerciseMuscleSelector from '@/components/presentation/workout-editor/exercise-muscle-selector';
+import ExerciseMuscleSelector from '@/components/smart/exercise-muscle-selector';
 import { spacing } from '@/hooks/useAppTheme';
 import { useTranslate } from '@tolgee/react';
 import { translateExerciseMeta } from '@/utils/exercise-meta';
