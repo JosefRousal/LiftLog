@@ -25,6 +25,12 @@ work to find the docs relevant to your area, and update it whenever you add, rem
 - [RemoteBackup.md](./RemoteBackup.md) — the automatic remote backup: the app-side settings, the HTTPS
   requirement, and the contract a self-hosted backup endpoint must satisfy.
 
+## Backend
+
+- [TsBackend.md](./TsBackend.md) — the TypeScript backend port (`shared/` + `server/`) replacing the
+  .NET `backend/`: why Hono/Drizzle/Zod, schema parity with the existing Postgres DB, what the Hono
+  RPC client does and doesn't do for you, and what's deliberately deferred (the AI planner).
+
 ## Generated
 
 - [schemas/](./schemas) — JSON schemas generated from the app's models: `ai-plan/`,

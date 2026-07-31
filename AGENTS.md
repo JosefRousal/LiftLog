@@ -8,8 +8,11 @@ The vast majority of work is in **`app/`** — an **Expo ~57 / React Native 0.86
 Stack: expo-router (file-based routes in `app/src/app/`), Redux Toolkit, React Native Paper (Material 3),
 Drizzle ORM + expo-sqlite, Tolgee i18n, React Compiler, TypeScript ~6.
 
-`backend/` is a **.NET / C# Web API** (end-to-end-encrypted feeds + AI planner). It **usually does not
-need changing** to add app features — only touch it when the task is explicitly backend work.
+`backend/` is the original **.NET / C# Web API** (end-to-end-encrypted feeds + AI planner), being
+replaced by a TypeScript port living in the pnpm workspace as `server/` (+ `shared/` for types/contracts
+shared with `app/`). `backend/` **stays running in production** until that port is complete and cut
+over — see [`docs/TsBackend.md`](docs/TsBackend.md). None of this **usually needs changing** to add app
+features — only touch it when the task is explicitly backend work.
 
 ### Directory map (`app/src/`)
 
@@ -47,9 +50,11 @@ Regenerate with `pnpm run json-schema`; don't hand-edit.
 
 ## Workspace
 
-The repo is a **pnpm workspace** (`app`, `scripts`; `backend/` is a separate .NET project, not part
-of it). Install dependencies once from the repo root with `pnpm install` — don't run `npm`/`yarn`/`bun`
-install commands, and don't install inside `app/` or `scripts/` directly.
+The repo is a **pnpm workspace** (`app`, `scripts`, `shared`, `server`; the legacy `backend/` .NET
+project is **not** part of it and is being replaced by `server`/`shared` — see
+[`docs/TsBackend.md`](docs/TsBackend.md)). Install dependencies once from the repo root with
+`pnpm install` — don't run `npm`/`yarn`/`bun` install commands, and don't install inside a workspace
+package directly.
 
 ## Commands (run from `app/`)
 

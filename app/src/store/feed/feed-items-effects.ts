@@ -21,7 +21,7 @@ import {
   SessionUserEvent,
 } from '@/models/feed-models';
 import { Session } from '@/models/session-models';
-import { GetUserResponse, UserEventResponse } from '@/models/feed-api-models';
+import { GetUserResponse, UserEventResponse } from '@liftlog/shared';
 import { EncryptionService, fromJsonBytes, toJsonBytes } from '@/services/encryption-service';
 import { FeedApiService } from '@/services/feed-api';
 import { selectSession } from '@/store/stored-sessions';

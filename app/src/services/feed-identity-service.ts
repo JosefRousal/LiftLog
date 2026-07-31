@@ -1,6 +1,6 @@
 import { FeedApiService } from './feed-api';
 import { EncryptionService, toJsonBytes } from './encryption-service';
-import { AesKey, RsaKeyPair } from '@/models/encryption-models';
+import { AesKey, RsaKeyPair } from '@liftlog/shared';
 import { FeedIdentity } from '@/models/feed-models';
 import { ProgramBlueprint } from '@/models/blueprint-models';
 import { ApiResult } from '@/services/api-error';

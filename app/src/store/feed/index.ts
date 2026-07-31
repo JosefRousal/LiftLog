@@ -1,4 +1,4 @@
-import { AesKey } from '@/models/encryption-models';
+import { AesKey } from '@liftlog/shared';
 import {
   FeedIdentity,
   FeedUser,

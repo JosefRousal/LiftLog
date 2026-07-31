@@ -6,7 +6,7 @@ import {
   RsaKeyPair,
   RsaPrivateKey,
   RsaPublicKey,
-} from '@/models/encryption-models';
+} from '@liftlog/shared';
 import crypto from 'crypto';
 import type { webcrypto } from 'crypto';
 

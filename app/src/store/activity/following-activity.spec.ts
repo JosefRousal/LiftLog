@@ -3,7 +3,7 @@ import { Instant, LocalDate } from '@js-joda/core';
 import { selectFollowingActivity } from '@/store/activity';
 import { FollowedFeedUser, SessionUserEvent } from '@/models/feed-models';
 import { RemoteData } from '@/models/remote';
-import { AesKey, RsaPublicKey } from '@/models/encryption-models';
+import { AesKey, RsaPublicKey } from '@liftlog/shared';
 import { RootState } from '@/store/store';
 import { Session } from '@/models/session-models';
 import {

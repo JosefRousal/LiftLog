@@ -1,8 +1,7 @@
 import { EncryptionService, fromJsonBytes } from './encryption-service';
-import { RsaPublicKey } from '@/models/encryption-models';
+import { RsaPublicKey, GetInboxMessageResponse } from '@liftlog/shared';
 import { FeedApiService } from './feed-api';
 import { FeedIdentity, fromInboxMessageJSON, InboxMessage } from '@/models/feed-models';
-import { GetInboxMessageResponse } from '@/models/feed-api-models';
 import { fromBase64Uint8ArrayJSON, InboxMessageJSON } from '@/models/storage/versions/latest';
 import { AnyVersionInboxMessageJSON } from '@/models/storage/versions/any';
 import { inboxMessageMigrations } from '@/models/storage/versions/migrations';

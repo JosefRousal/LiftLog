@@ -3,8 +3,7 @@ import { FeedInboxDecryptionService } from './feed-inbox-decryption-service';
 import { EncryptionService, toJsonBytes } from './encryption-service';
 import { type FeedApiService } from './feed-api';
 import { FeedUser, FeedIdentity, FollowedFeedUser } from '@/models/feed-models';
-import { GetInboxMessageResponse, GetUserResponse } from '@/models/feed-api-models';
-import { RsaPrivateKey } from '@/models/encryption-models';
+import { GetInboxMessageResponse, GetUserResponse, RsaPrivateKey } from '@liftlog/shared';
 import { ApiResult } from '@/services/api-error';
 import {
   FollowRequestJSON,
